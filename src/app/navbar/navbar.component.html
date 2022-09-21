@@ -1,0 +1,8 @@
+<nav>
+  <button (click)="showModal()">Show modal</button>
+</nav>
+
+<app-register-modal
+  [displayModal]="currentDisp"
+  (closeMod)="close($event)"
+></app-register-modal>

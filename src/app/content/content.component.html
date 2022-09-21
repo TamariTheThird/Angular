@@ -1,0 +1,46 @@
+<div class="frame">
+  <div class="product-frame">
+    <div class="product" *ngFor="let product of Products">
+      <div class="images">
+        <div class="main-img">
+          <img src="{{ product.images[0] }}" alt="" />
+        </div>
+
+        <div class="galery">
+          <div class="img">
+            <img src="{{ product.images[0] }}" alt="" />
+          </div>
+          <div class="img"><img src="{{ product.images[1] }}" alt="" /></div>
+          <div class="img"><img src="{{ product.images[2] }}" alt="" /></div>
+        </div>
+        <p *ngIf="product.gift">+ საჩუქარი</p>
+      </div>
+
+      <div class="descript">
+        <h1>{{ product.title }}</h1>
+
+        <div class="price">
+          <p class="discount" *ngIf="product.discount">- 30%</p>
+          <p class="new-price" *ngIf="product.discount">
+            ახალი ფასი:
+            <span [innerText]="product.price - product.price * 0.3 + ' ₾'">
+            </span>
+          </p>
+          <p class="old-price">
+            ფასი:
+            <span
+              [ngStyle]="{
+                textDecoration: product.discount ? 'line-through' : 'none'
+              }"
+            >
+              {{ product.price }}₾
+            </span>
+          </p>
+        </div>
+
+        <!-- <p>წონა:{{ product.weight[0] }}გრ.</p>
+        <p>{{ product.weight[1] }}გრ.</p> -->
+      </div>
+    </div>
+  </div>
+</div>
